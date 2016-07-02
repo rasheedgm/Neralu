@@ -9,3 +9,6 @@ function emptyMember(){
     var a= {"Id": "","Name":"","Phone":""};
     return(a);
 }
+function logIn(email,pass){
+
+}

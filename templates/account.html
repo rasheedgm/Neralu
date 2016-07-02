@@ -1,0 +1,61 @@
+<div class="panel panel-primary" >                          
+    <div class="panel-heading "><h4> New </h4>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" name="accountForm">
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="account-id">Date:</label>
+                <div class="col-sm-9">
+                    <input type="date" class="form-control" id="account-date" placeholder="Account Date" ng-model="newAccount.Date">                           
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="account-name">Name:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="account-name" placeholder="Account Name" ng-model="newAccount.Name" >  
+                </div>
+            </div>
+            <div class="form-group">  
+                <label class="control-label col-sm-3" for="account-promised">Amount Promised:</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="account-promised" placeholder="Promised" ng-model="newAccount.Promised" >  
+                </div>
+            </div>
+            <div class="form-group">  
+                <label class="control-label col-sm-3" for="account-paid">Paid:</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="account-paid" placeholder="Paid" ng-model="newAccount.Paid" >  
+                </div>
+            </div>
+            <div class="form-group">  
+                <label class="control-label col-sm-3" for="account-project">Project:</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="account-project" placeholder="Project" ng-model="newAccount.Project" >  
+                </div>
+            </div>
+            <div class="form-group">  
+                <label class="control-label col-sm-3" for="account-representative">Representative:</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="account-representative" placeholder="Representative" ng-model="newAccount.Representative" >  
+                </div>
+            </div>
+            <div class="form-group">  
+                <label class="control-label col-sm-3" for="account-zone">Zone:</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="account-zone" placeholder="Zone" ng-model="newAccount.Zone" ng-disabled="messageCustExist">  
+                </div>
+            </div>
+            <div class="form-group">  
+                <label class="control-label col-sm-3" for="account-mode">Mode:</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="account-mode" placeholder="Mode" ng-model="newAccount.Mode" ng-disabled="messageCustExist">  
+                </div>
+            </div>
+            <div class="form-group">  
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button class="btn btn-primary" ng-click="accountForm.$valid && addNewAccount()" ng-disabled="messageCustExist">ADD</button>
+                </div>
+            </div>
+        </form>
+    </div>   
+</div>
