@@ -19,7 +19,7 @@
                 <th>Name</th>
                 <th>Promised</th>
                 <th>Paid</th>
-                <th>Action</th>
+                <th ng-show="user.authenticated">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +27,7 @@
                 <td>{{account.Name}}</td>
                 <td>{{account.AmountPromised|currency:"&#8377;"}}</td>
                 <td>{{account.AmountPaid|currency:"&#8377;"}}</td>
-                <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                <td ng-show="user.authenticated"><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
             </tr>
         </tbody>
     
