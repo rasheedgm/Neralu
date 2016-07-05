@@ -2,8 +2,8 @@
     <div ng-show="!show.Details" class="panel-heading"><div ><h4 > Projects</h4></div></div>
     <div ng-show="show.Details" class="panel-heading"><h4 ng-click="toggleDetails()"> Projects<span class="pull-left glyphicon glyphicon-menu-left"></span></h4></div>
     <div href class="list-group default" ng-repeat="project in projects" ng-if="project.Name" ng-show="!show.Details">
-        <a class="list-group-item" ng-click="toggleDetails();clickList(project.Id);" >
-            <h4 class="list-group-item-heading">{{project.Name}}<span class="label label-default label-pill pull-right">{{getProjectTotalPaid(project.Id)|currency:"&#8377;"}}/{{getProjectTotalPromised(project.Id)|currency:"&#8377;"}}</span></h4>
+        <a class="list-group-item" ng-click="toggleDetails();clickList(project.$id);" >
+            <h4 class="list-group-item-heading">{{project.Name}}<span class="label label-default label-pill pull-right">{{getProjectTotalPaid(project.$id)|currency:"&#8377;"}}/{{getProjectTotalPromised(project.$id)|currency:"&#8377;"}}</span></h4>
             <p class="list-group-item-text">{{project.Details}}</p>            
         </a>
         

@@ -31,7 +31,7 @@
                 <label class="control-label col-sm-3" for="account-project">Project:</label>
                 <div class="col-sm-9">
                     <select class="form-control" ng-model = "newAccount.Project" >
-                        <option ng-repeat="project in projects" ng-if="project.Name" value="{{project.Id}}">{{project.Name}}</option>
+                        <option ng-repeat="project in projects" ng-if="project.Name" value="{{project.$id}}">{{project.Name}}</option>
                     </select> 
                 </div>
             </div>

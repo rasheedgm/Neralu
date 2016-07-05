@@ -1,12 +1,12 @@
 app = angular.module('stockMng', ["firebase"]);
-app.controller('appCtrl', ["$scope", "$firebaseObject",function($scope,$firebaseObject) {
+app.controller('appCtrl', ["$scope", "$firebaseObject","$firebaseArray",function($scope,$firebaseObject,$firebaseArray) {
     // Initialize Firebase
     //var ref = new Firebase("https://neralu-99f71.firebaseio.com");
     var ref = firebase.database().ref();  
-    $scope.members = $firebaseObject(ref.child("members"));   
-    $scope.projects = $firebaseObject(ref.child("projects"));   
-    $scope.accounts =$firebaseObject(ref.child("accounts"));  
-    $scope.zones =$firebaseObject(ref.child("zones")); 
+    $scope.members = $firebaseArray(ref.child("members"));       
+    $scope.projects = $firebaseArray(ref.child("projects"));   
+    $scope.accounts =$firebaseArray(ref.child("accounts"));  
+    $scope.zones =$firebaseArray(ref.child("zones")); 
     $scope.show={};
     $scope.show.Details=false;
     $scope.user={};
@@ -76,14 +76,15 @@ app.controller('appCtrl', ["$scope", "$firebaseObject",function($scope,$firebase
     //new member
     $scope.addNewMember = function(){ 
         var tempNewMember={"Id": $scope.newMember.Id,"Name":$scope.newMember.Name,"Phone":$scope.newMember.Phone};
-        $scope.members[$scope.newMember.Id]=tempNewMember;  
-        $scope.members.$save().then(function(ref) {            
+        //$scope.members[$scope.newMember.Id]=tempNewMember; 
+        $scope.members.$add(tempNewMember);
+        /*$scope.members.$save().then(function(ref) {            
             $scope.newMember=emptyMember();
             tempNewMember={};
             alert("Updated");
         }, function(error) {
             alert("Something Went wrong: " , error);
-        });
+        });*/
     }
     
     $scope.checkMember=function(membId){
@@ -102,14 +103,14 @@ app.controller('appCtrl', ["$scope", "$firebaseObject",function($scope,$firebase
     //new Project   
         $scope.newProject={}; 
         $scope.addNewProject=function(){
-            $scope.projects.counter = ($scope.projects.counter||0) +1;   
-            var projectId = $scope.projects.counter;
-            projectId =  "PROJ"+ pad(projectId);
-            $scope.newProject.Id=projectId;            
-            var tempNewProject={"Id" : $scope.newProject.Id,"Name": $scope.newProject.Name,"Details": $scope.newProject.Details,"Contact": $scope.newProject.Contact};
-            $scope.projects[tempNewProject.Id]=tempNewProject;
+            //$scope.projects.counter = ($scope.projects.counter||0) +1;   
+            //var projectId = $scope.projects.counter;
+            //projectId =  "PROJ"+ pad(projectId);
+            //$scope.newProject.Id=projectId;            
+            var tempNewProject={"Name": $scope.newProject.Name,"Details": $scope.newProject.Details,"Contact": $scope.newProject.Contact};
+            //$scope.projects[tempNewProject.Id]=tempNewProject;
             //$scope.projects=tempNewProject;
-            $scope.projects.$save().then(function(ref) {            
+            $scope.projects.$add(tempNewProject).then(function(ref) {            
             $scope.newProject={};
                 alert("Updated");
             }, function(error) {
@@ -123,13 +124,13 @@ app.controller('appCtrl', ["$scope", "$firebaseObject",function($scope,$firebase
         $scope.newAccount={};
         $scope.newAccount.Date = new Date();    
         $scope.addNewAccount=function(){
-        $scope.accounts.counter = ($scope.accounts.counter||0) +1;
-        var accountId = $scope.accounts.counter;
-        accountId =  "ACT"+ pad(accountId);
-        $scope.newAccount.Id=accountId;
-        var tempNewAccount={"Id" : $scope.newAccount.Id,"Date" :$scope.newAccount.Date.getTime(),"Name":$scope.newAccount.Name,"AmountPromised": ($scope.newAccount.AmountPromised||0),"AmountPaid": ($scope.newAccount.AmountPaid||0),"Project": $scope.newAccount.Project,"Representative": $scope.newAccount.Representative,"Zone": $scope.newAccount.Zone,"PaymentMode": "Cash"};
-        $scope.accounts[tempNewAccount.Id]=tempNewAccount;
-        $scope.accounts.$save().then(function(ref) {            
+        //$scope.accounts.counter = ($scope.accounts.counter||0) +1;
+        //var accountId = $scope.accounts.counter;
+        //accountId =  "ACT"+ pad(accountId);
+        //$scope.newAccount.Id=accountId;
+        var tempNewAccount={"Date" :$scope.newAccount.Date.getTime(),"Name":$scope.newAccount.Name,"AmountPromised": ($scope.newAccount.AmountPromised||0),"AmountPaid": ($scope.newAccount.AmountPaid||0),"Project": $scope.newAccount.Project,"Representative": $scope.newAccount.Representative,"Zone": $scope.newAccount.Zone,"PaymentMode": "Cash"};
+        //$scope.accounts[tempNewAccount.Id]=tempNewAccount;
+        $scope.accounts.$add(tempNewAccount).then(function(ref) {            
             $scope.newAccount={};
             $scope.newAccount.Date = new Date();
             alert("Updated");
