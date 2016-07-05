@@ -1,2 +1,8 @@
-
+var totalPromise =0;
+        angular.forEach($scope.accounts, function(account,key){
+            if(account.Project==projId){
+                totalPromise=totalPromise+account.AmountPromised;
+            }
+        });
+        return(totalPromise);
         

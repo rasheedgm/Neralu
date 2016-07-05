@@ -1,7 +1,7 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.pragathisc.in" version="1.0.0">
-  <name>Pragathi</name>
-  <description>Pragathi sports club</description>
-  <author href="http://phonegap.com" email="pragathisc@gmail.com.com">Pragathi</author>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.neralu.in" version="1.0.0">
+  <name>Neralu</name>
+  <description>Sullia Neralu Joyane</description>
+  <author href="http://phonegap.com" email="sullianeralu@gmail.com.com">Pragathi</author>
   <content src="index.html"/>
   <feature name="http://api.phonegap.com/1.0/network"/>
   <preference name="orientation" value="default"/>
@@ -27,6 +27,7 @@
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
   <platform name="android">
+      <icon src="icon.png" width="75" height="68" />
     <allow-intent href="market:*"/>
   </platform>
   <platform name="ios">

@@ -1,0 +1,9 @@
+<div class="panel panel-primary">
+    <div class="panel-heading"><h4>Projects</h4></div>
+    <table class="table">
+        <tr><th>Name</th><th>Promised</th><th>Paid</th><th>Action</th></tr>
+        <tr ng-repeat ="account in accounts" ng-if = "account.Project===selectedProject" class="row"><td>{{account.Name}}</td><td>{{account.AmountPromised}}</td><td>{{account.AmountPaid}}</td><td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td></tr>
+    
+    </table>
+    
+</div>
